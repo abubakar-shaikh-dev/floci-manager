@@ -3,7 +3,7 @@
 **A one-key menu for [Floci](https://github.com/floci-io/floci) on Windows.**
 Start local AWS, make S3 buckets, upload files. No commands to remember.
 
-![Floci Manager screenshot](docs/screenshot.png)
+![Floci Manager screenshot](docs/banner.png)
 
 > Unofficial tool. Not made by or connected to the Floci team.
 
