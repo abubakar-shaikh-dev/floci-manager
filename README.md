@@ -16,7 +16,7 @@ A one-key menu for [Floci](https://github.com/floci-io/floci) on Windows.
 
 Floci Manager is a single batch file. It wraps the Floci CLI and the AWS CLI in a menu, so you can start Floci, manage S3 buckets and upload files without typing commands.
 
-![Screenshot](docs/screenshot.png)
+![Screenshot](docs/screenshot.jpg)
 
 ## Contents
 
