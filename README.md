@@ -2,127 +2,101 @@
 
 <img src="docs/banner.jpg" alt="Floci Manager" width="100%">
 
-<br>
+# Floci Manager
 
-### One-key menu for [Floci](https://github.com/floci-io/floci) on Windows
-Start local AWS, manage S3 buckets and upload files. No commands to remember.
+A one-key menu for [Floci](https://github.com/floci-io/floci) on Windows.
 
-<br>
-
-[![License: MIT](https://img.shields.io/badge/license-MIT-00d4ff?style=flat-square)](LICENSE)
-[![Platform: Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-0078D6?style=flat-square&logo=windows&logoColor=white)](#requirements)
-[![Release](https://img.shields.io/github/v/release/abubakar-shaikh-dev/floci-manager?style=flat-square&color=2ea043)](https://github.com/abubakar-shaikh-dev/floci-manager/releases/latest)
-[![Stars](https://img.shields.io/github/stars/abubakar-shaikh-dev/floci-manager?style=flat-square&color=f0b429)](https://github.com/abubakar-shaikh-dev/floci-manager/stargazers)
-
-[**Quick start**](#-quick-start) · [**Keys**](#-keys) · [**Connect your code**](#-connect-your-code) · [**Help**](#-help)
+[![License](https://img.shields.io/github/license/abubakar-shaikh-dev/floci-manager?style=flat-square)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/abubakar-shaikh-dev/floci-manager?style=flat-square)](https://github.com/abubakar-shaikh-dev/floci-manager/releases/latest)
+![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue?style=flat-square)
 
 </div>
 
-<br>
+---
 
-![Floci Manager screenshot](docs/screenshot.png)
+Floci Manager is a single batch file. It wraps the Floci CLI and the AWS CLI in a menu, so you can start Floci, manage S3 buckets and upload files without typing commands.
 
-<br>
+![Screenshot](docs/screenshot.png)
 
-## ✨ Why Floci Manager?
+## Contents
 
-Floci gives you a free AWS on your computer. But typing the same long commands again and again is slow. Floci Manager turns them into **one key press**.
+- [Requirements](#requirements)
+- [Install](#install)
+- [Usage](#usage)
+- [Keys](#keys)
+- [Connecting your code](#connecting-your-code)
+- [Configuration](#configuration)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
-| Without Floci Manager | With Floci Manager |
-|---|---|
-| `floci start --persist .\data` | Press <kbd>K</kbd> |
-| `aws s3 mb s3://my-bucket --endpoint-url http://localhost:4566` | Press <kbd>N</kbd> |
-| `aws s3 cp file.zip s3://my-bucket/ --endpoint-url ...` | Press <kbd>U</kbd>, drag your file in |
-| `aws s3 rb s3://my-bucket --force --endpoint-url ...` | Press <kbd>R</kbd> |
+## Requirements
 
-<br>
+- Windows 10 or 11
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Floci CLI](https://floci.io)
+- [AWS CLI](https://aws.amazon.com/cli/) (only needed for the S3 menu)
 
-## 🚀 Quick start
-
-**1.** Install the [requirements](#requirements) below.
-
-**2.** Download `floci-manager.bat` from the [latest release](https://github.com/abubakar-shaikh-dev/floci-manager/releases/latest), or clone:
-
-```bash
-git clone https://github.com/abubakar-shaikh-dev/floci-manager.git
-```
-
-**3.** Open Docker Desktop. Wait until it says **running**.
-
-**4.** Double-click `floci-manager.bat` and press <kbd>S</kbd>.
-
-Done. Floci is now running at `http://localhost:4566`.
-
-<br>
-
-## 🧰 Features
-
-| | |
-|---|---|
-| ▶️ **Start and stop** | Run Floci fresh, or keep your data between restarts |
-| 🪣 **S3 buckets** | Create, list and delete buckets |
-| 📤 **File upload** | Drag and drop a file into the window |
-| 🌐 **Web console** | Opens in your browser with one key |
-| 🩺 **Health check** | Finds problems and tells you what to do |
-| 🛡️ **Safe delete** | You must type the bucket name before anything is removed |
-| 🎯 **Smart menu** | Keys that cannot work right now turn grey |
-| 🔧 **Custom port** | Change the port with one setting |
-
-<br>
-
-## 📋 Requirements
-
-| What | Why | Get it |
-|---|---|---|
-| **Windows 10 or 11** | Colors and `curl` | |
-| **Docker Desktop** | Floci runs inside Docker | [Download](https://www.docker.com/products/docker-desktop/) |
-| **Floci CLI** | Starts Floci | See below |
-| **AWS CLI** | Only for the bucket menu | [Download](https://aws.amazon.com/cli/) |
-
-Install the Floci CLI. Open PowerShell and run:
+Install the Floci CLI from PowerShell:
 
 ```powershell
 iwr https://floci.io/install.ps1 | iex
 ```
 
-<br>
+## Install
 
-## ⌨️ Keys
+Download `floci-manager.bat` from the [latest release](https://github.com/abubakar-shaikh-dev/floci-manager/releases/latest), or clone the repo:
 
-**Floci**
+```bash
+git clone https://github.com/abubakar-shaikh-dev/floci-manager.git
+```
 
-| Key | Action | |
-|:---:|---|---|
-| <kbd>S</kbd> | Start | Fresh, nothing saved |
-| <kbd>K</kbd> | Start + keep my data | Saved in the `data` folder |
-| <kbd>X</kbd> | Stop | |
-| <kbd>I</kbd> | Status | Container and health |
-| <kbd>L</kbd> | Logs | Last 50 lines |
-| <kbd>H</kbd> | Health check | Find problems |
+No other setup is needed.
 
-**Storage (S3)**
+## Usage
 
-| Key | Action | |
-|:---:|---|---|
-| <kbd>B</kbd> | My buckets | See everything you have |
-| <kbd>N</kbd> | New bucket | |
-| <kbd>F</kbd> | Files in a bucket | |
-| <kbd>U</kbd> | Upload a file | Drag and drop works |
-| <kbd>R</kbd> | Remove a bucket | Asks you to confirm |
+1. Start Docker Desktop and wait until it is running.
+2. Double-click `floci-manager.bat`.
+3. Press `S` to start Floci.
 
-**Tools**
+Floci is then available at `http://localhost:4566`.
 
-| Key | Action | |
-|:---:|---|---|
-| <kbd>W</kbd> | Web console | Opens in your browser |
-| <kbd>C</kbd> | Connection details | Keys, region, endpoint |
-| <kbd>Q</kbd> | Quit | Floci keeps running |
+The menu shows only the keys that work right now. For example, the bucket keys are greyed out while Floci is stopped.
 
-<br>
+## Keys
 
-## 🔌 Connect your code
+### Floci
 
-Press <kbd>C</kbd> in the menu to see this anytime.
+| Key | Action |
+|:---:|---|
+| `S` | Start. Nothing is saved. |
+| `K` | Start and keep data in the `data` folder. |
+| `X` | Stop. |
+| `I` | Show status. |
+| `L` | Show the last 50 log lines. |
+| `H` | Run a health check. |
+
+### Storage (S3)
+
+| Key | Action |
+|:---:|---|
+| `B` | List buckets. |
+| `N` | Create a bucket. |
+| `F` | List files in a bucket. |
+| `U` | Upload a file. Drag and drop works. |
+| `R` | Remove a bucket. You must type its name to confirm. |
+
+### Tools
+
+| Key | Action |
+|:---:|---|
+| `W` | Open the web console in your browser. |
+| `C` | Show connection details. |
+| `Q` | Quit. Floci keeps running. |
+
+## Connecting your code
+
+Press `C` in the menu to see these values at any time.
 
 | Setting | Value |
 |---|---|
@@ -131,86 +105,43 @@ Press <kbd>C</kbd> in the menu to see this anytime.
 | Secret key | `test` |
 | Region | `us-east-1` |
 
-> [!TIP]
-> In your code, turn on **path-style S3 addressing**. Without it, bucket URLs will not work on localhost.
+Enable path-style S3 addressing in your SDK. Virtual-hosted style does not work with `localhost`.
 
-<br>
+## Configuration
 
-## ⚙️ Settings
-
-**Use another port** (default is `4566`):
+**Port.** The default is `4566`. To change it, set `FLOCI_PORT` before you run the script:
 
 ```bat
 set FLOCI_PORT=4599
 floci-manager.bat
 ```
 
-**Saved data** lives in the `data` folder next to the `.bat` file. Delete the folder to start clean.
+**Saved data.** Data from `K` is stored in a `data` folder next to the script. Delete the folder to start clean.
 
-<br>
+## Troubleshooting
 
-## 🆘 Help
+**Floci CLI not found.** Install it with the command in [Requirements](#requirements), then run the script again.
 
-<details>
-<summary><b>"Floci CLI not found"</b></summary>
-<br>
-Install it with the PowerShell command in <a href="#requirements">Requirements</a>, then open the file again.
-</details>
+**Docker is not running.** Start Docker Desktop and wait until it reports that it is running.
 
-<details>
-<summary><b>"Docker is not running"</b></summary>
-<br>
-Open Docker Desktop and wait until it says <b>running</b>. Then try again.
-</details>
+**Floci does not start.** Press `H` to run the health check.
 
-<details>
-<summary><b>Floci will not start</b></summary>
-<br>
-Press <kbd>H</kbd> for the health check. It shows what is wrong.
-</details>
+**Port already in use.** Press `X`. It stops Floci and frees the port. You can also set a different port with `FLOCI_PORT`.
 
-<details>
-<summary><b>Port is already in use</b></summary>
-<br>
-Press <kbd>X</kbd>. It stops Floci and also frees the port. Or use another port with <code>FLOCI_PORT</code>.
-</details>
+**Broken box characters.** Run the script in Windows Terminal, or update Windows. Older consoles cannot show these characters.
 
-<details>
-<summary><b>Strange symbols instead of boxes</b></summary>
-<br>
-Use <b>Windows Terminal</b>, or update Windows. Old consoles cannot show these symbols.
-</details>
+**AWS CLI not found.** Only the S3 menu needs it. Install it from [aws.amazon.com/cli](https://aws.amazon.com/cli/).
 
-<details>
-<summary><b>"AWS CLI not found"</b></summary>
-<br>
-Only the bucket menu needs the AWS CLI. Install it from <a href="https://aws.amazon.com/cli/">aws.amazon.com/cli</a>.
-</details>
+## Contributing
 
-<br>
+Issues and pull requests are welcome.
 
-## 🤝 Contributing
+- Save `.bat` files as UTF-8 without BOM.
+- Keep CRLF line endings. `.gitattributes` handles this.
+- Test on Windows 10 and 11 if you can.
 
-Pull requests are welcome. Please:
+## License
 
-- Save `.bat` files as **UTF-8 without BOM**
-- Keep **CRLF** line endings (`.gitattributes` does this for you)
-- Keep text short and simple
+[MIT](LICENSE)
 
-Found a bug or have an idea? [Open an issue](https://github.com/abubakar-shaikh-dev/floci-manager/issues).
-
-<br>
-
-## 📄 License
-
-[MIT](LICENSE) © [abubakar-shaikh-dev](https://github.com/abubakar-shaikh-dev)
-
-<br>
-
-<div align="center">
-
-**If this saved you time, give it a ⭐**
-
-<sub>Unofficial tool. Not made by or connected to the Floci team.</sub>
-
-</div>
+This is an unofficial tool. It is not affiliated with the Floci project.
